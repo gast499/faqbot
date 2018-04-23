@@ -1,3 +1,10 @@
+## Usage
+
+Add the following to .env:
+
+DIALOGFLOW_API_KEY=<your_dialogflow_api_key>
+SCOUT_ELASTIC_HOST=<your_elastic_search_node_ip:port>
+
 <p align="center"><img height="188" width="198" src="https://botman.io/img/botman.png"></p>
 <h1 align="center">BotMan Studio</h1>
 
@@ -22,4 +29,3 @@ If you discover a security vulnerability within BotMan or BotMan Studio, please 
 ## License
 
 BotMan is free software distributed under the terms of the MIT license.
-
