@@ -4,14 +4,14 @@ namespace App;
 
 //use ScoutElastic\Searchable;
 use Illuminate\Database\Eloquent\Model;
-//use \Conner\Tagging\Taggable;
+use \Conner\Tagging\Taggable;
 
 class Question extends Model
 {
 
     //use Searchable;
-    //use Taggable;
-    /*
+    use Taggable;
+
     protected $indexConfigurator = MyIndexConfigurator::class;
 
     protected $searchRules = [
@@ -26,7 +26,7 @@ class Question extends Model
             ]
         ]
     ];
-    */
+
     public function user()
     {
         return $this->belongsTo('App\User');
