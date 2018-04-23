@@ -16,7 +16,7 @@ class DialogFlowTest extends TestCase
     public function testBasicDialogFlow()
     {
         $botController = new BotManController();
-        $this->bot->receives('installing laravel help');
+        $this->bot->receives('How do I install Laravel?');
         $this->bot->assertReply($botController->handle());
     }
 }

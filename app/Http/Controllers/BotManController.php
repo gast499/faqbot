@@ -20,9 +20,18 @@ class BotManController extends Controller
         $botman = app('botman');
         $botman->middleware->received($dialogflow);
         //If what the user types matches an action defined in my DialogFlow Agent, it's intent is identified, action, and the response is identified
-        //To hit this action, try asking a question about installing laravel
-        $botman->hears('install.laravel', function (BotMan $bot) {
-            // The incoming message matched the "install.laravel" action on Dialogflow
+        //To hit this action, try asking a question
+        $botman->hears('input.question', function (BotMan $bot) {
+            // The incoming message matched the "input.answer" action on Dialogflow
+            // Retrieves Dialogflow information:
+            $extras = $bot->getMessage()->getExtras();
+            $apiReply = $extras['apiReply']; //captures the DialogFlow reply for the user's message
+            $apiAction = $extras['apiAction']; //captures the DialogFlow action for the user's message
+            $apiIntent = $extras['apiIntent']; //captures the DialogFlow intent the action was matched with
+            $bot->reply($apiReply);
+        })->middleware($dialogflow);
+        $botman->hears('input.answer', function (BotMan $bot) {
+            // The incoming message matched the "input.answer" action on Dialogflow
             // Retrieves Dialogflow information:
             $extras = $bot->getMessage()->getExtras();
             $apiReply = $extras['apiReply']; //captures the DialogFlow reply for the user's message
