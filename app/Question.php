@@ -11,12 +11,19 @@ use ScoutElastic\Searchable;
 use \Conner\Tagging\Taggable;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
+use App\Events\QuestionCreated;
 
 class Question extends Model
 {
 
     use Searchable;
     use Taggable;
+    use Notifiable;
+
+    protected $dispatchesEvents = [
+      'created' => QuestionCreated::class,
+    ];
 
     //Create an Index Configurator instance to get index settings
     protected $indexConfigurator = MyIndexConfigurator::class;

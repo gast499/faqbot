@@ -24,7 +24,13 @@ class QuestionTest extends TestCase
     }
 
     public function testTags() {
+        $user = factory(\App\User::class)->make();
+        $user->save();
         $question = factory(\App\Question::class)->make();
-        $this->assertTrue($question->tags instanceof Collection);
+        $question->user()->associate($user);
+        $tag = '#test';
+        $question->body = $question->body . $tag;
+        $question->save();
+        $this->assertTrue($question->tags[0]->name === $tag);
     }
 }
