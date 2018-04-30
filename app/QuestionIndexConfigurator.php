@@ -5,11 +5,11 @@ namespace App;
 use ScoutElastic\IndexConfigurator;
 use ScoutElastic\Migratable;
 
-class MyIndexConfigurator extends IndexConfigurator
+class QuestionIndexConfigurator extends IndexConfigurator
 {
     use Migratable;
 
-    protected $name = 'faq';
+    protected $name = 'questions';
 
     protected $settings = [
         //

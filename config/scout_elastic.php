@@ -3,7 +3,7 @@
 return [
     'client' => [
         'hosts' => [
-            env('SCOUT_ELASTIC_HOST', env('SCOUT_ELASTIC_HOST'))
+            env('SCOUT_ELASTIC_HOST')
         ]
     ],
     'update_mapping' => env('SCOUT_ELASTIC_UPDATE_MAPPING', true),

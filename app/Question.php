@@ -26,7 +26,7 @@ class Question extends Model
     ];
 
     //Create an Index Configurator instance to get index settings
-    protected $indexConfigurator = MyIndexConfigurator::class;
+    protected $indexConfigurator = QuestionIndexConfigurator::class;
 
     //This allows you to set different search algorithms for this model.
     //Not explicitly required
