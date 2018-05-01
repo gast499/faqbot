@@ -6,13 +6,14 @@ use BotMan\BotMan\BotMan;
 use Illuminate\Http\Request;
 use App\Conversations\ExampleConversation;
 use BotMan\BotMan\Middleware\ApiAi;
+use Illuminate\Support\Facades\Log;
 
 class BotManController extends Controller
 {
     /**
      * Place your BotMan logic here.
      */
-
+    public $bot;
     public function handle()
     {
         //---------------------START DIALOGFLOW CODE-------------------------------
@@ -22,13 +23,14 @@ class BotManController extends Controller
         //If what the user types matches an action defined in my DialogFlow Agent, it's intent is identified, action, and the response is identified
         //To hit this action, try asking a question
         $botman->hears('input.question', function (BotMan $bot) {
-            // The incoming message matched the "input.answer" action on Dialogflow
+            // The incoming message matched the "input.question" action on Dialogflow
             // Retrieves Dialogflow information:
             $extras = $bot->getMessage()->getExtras();
             $apiReply = $extras['apiReply']; //captures the DialogFlow reply for the user's message
             $apiAction = $extras['apiAction']; //captures the DialogFlow action for the user's message
             $apiIntent = $extras['apiIntent']; //captures the DialogFlow intent the action was matched with
             $bot->reply($apiReply);
+//            Log::info(print_r($bot->getMessage(), true));
         })->middleware($dialogflow);
         $botman->hears('input.answer', function (BotMan $bot) {
             // The incoming message matched the "input.answer" action on Dialogflow
@@ -44,7 +46,7 @@ class BotManController extends Controller
             $bot->reply('Sorry, I didnt understand that');
         });
         $botman->listen();
-
+        return $botman;
     }
 
     /**
