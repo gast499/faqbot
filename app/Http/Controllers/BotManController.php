@@ -46,7 +46,7 @@ class BotManController extends Controller
             $bot->reply('Sorry, I didnt understand that');
         });
         $botman->listen();
-        return $botman;
+        //return $botman;
     }
 
     /**
