@@ -9,7 +9,7 @@
                     <div class="card-body">
                         {{$answer->body}}
                     </div>
-                    
+
                 </div>
 
             </div>
