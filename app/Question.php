@@ -53,4 +53,11 @@ class Question extends Model
     {
         return $this->hasMany('App\Answer');
     }
+
+
+    public static function RecentQuestions()
+    {
+        $Recentq = Question::selectRaw('body,created_at,id')->orderBy('created_at','DESC')->limit(5)->get();
+        return $Recentq;
+    }
 }

@@ -146,6 +146,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         \Conner\Tagging\Providers\TaggingServiceProvider::class,
+        App\Providers\ComposerServiceProvider::class,
         /*
          * Package Service Providers...
          */
