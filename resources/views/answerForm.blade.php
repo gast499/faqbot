@@ -8,10 +8,10 @@
                     <div class="card-header">Create Answer</div>
                     <div class="card-body">
                         @if($edit === FALSE)
-                            {!! Form::model($answer, ['route' => ['answers.store', $question], 'method' => 'post']) !!}
+                            {!! Form::model($answer, ['route' => ['answer.store', $question], 'method' => 'post']) !!}
 
                         @else()
-                            {!! Form::model($answer, ['route' => ['answers.update', $question, $answer], 'method' => 'patch']) !!}
+                            {!! Form::model($answer, ['route' => ['answer.update', $question, $answer], 'method' => 'patch']) !!}
                         @endif
                         <div class="form-group">
                             {!! Form::label('body', 'Body') !!}

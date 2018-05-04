@@ -31,7 +31,7 @@ class ProfileController extends Controller
     {
         $profile = new Profile();
         $edit = FALSE;
-        return view('pages.profile.profileForm', ['profile' => $profile,'edit' => $edit  ]);
+        return view('profileForm', ['profile' => $profile,'edit' => $edit  ]);
     }
 
     /**
@@ -111,7 +111,7 @@ class ProfileController extends Controller
 
         ]);
         $profile = Profile::find($profile);
-        $profile->fname = $request->lname;
+        $profile->fname = $request->fname;
         $profile->lname = $request->lname;
         $profile->body = $request->body;
         $profile->save();

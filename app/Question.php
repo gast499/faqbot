@@ -21,6 +21,7 @@ class Question extends Model
     use Taggable;
     use Notifiable;
 
+    protected $fillable = ['body'];
     protected $dispatchesEvents = [
       'created' => QuestionCreated::class,
     ];

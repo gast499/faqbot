@@ -107,7 +107,7 @@ class AnswerController extends Controller
         $answer->body = $request->body;
         $answer->save();
 
-        return redirect()->route('answers.show',['question_id' => $question, 'answer_id' => $answer])->with('message', 'Updated');
+        return redirect()->route('answer.show',['question_id' => $question, 'answer_id' => $answer])->with('message', 'Updated');
 
     }
 
@@ -122,7 +122,7 @@ class AnswerController extends Controller
         $answer = Answer::find($answer);
 
         $answer->delete();
-        return redirect()->route('questions.show',['question_id' => $question])->with('message', 'Delete');
+        return redirect()->route('question.show',['question_id' => $question])->with('message', 'Delete');
 
     }
 }
