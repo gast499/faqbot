@@ -21,7 +21,6 @@
 </head>
 
 <body>
-
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
 
@@ -31,7 +30,8 @@
                     {{ config('app.name', 'Laravel') }}
                     </a>
                 @else
-                    <a class="navbar-brand" href="{{ route('home') }}">
+
+                    <a class="navbar-brand" href="{{ url('/') }}">
                     Home
                     </a>
                 @endguest
