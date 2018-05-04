@@ -21,6 +21,7 @@
         "fideloper/proxy": "~4.0",
         "laravel/framework": "5.6.*",
         "laravel/tinker": "~1.0",
+        "laravelcollective/html": "5.6.0",
         "mpociot/slack-client": "^1.0",
         "react/event-loop": "^0.4.3",
         "rtconner/laravel-tagging": "~2.2"

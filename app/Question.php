@@ -21,6 +21,7 @@ class Question extends Model
     use Taggable;
     use Notifiable;
 
+    protected $fillable = ['body'];
     protected $dispatchesEvents = [
       'created' => QuestionCreated::class,
     ];
@@ -52,5 +53,12 @@ class Question extends Model
     public function answers()
     {
         return $this->hasMany('App\Answer');
+    }
+
+
+    public static function RecentQuestions()
+    {
+        $Recentq = Question::selectRaw('body,created_at,id')->orderBy('created_at','DESC')->limit(5)->get();
+        return $Recentq;
     }
 }
