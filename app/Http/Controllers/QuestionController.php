@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Question;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 class QuestionController extends Controller
 {
@@ -54,6 +55,10 @@ class QuestionController extends Controller
             'body.min' => 'Body must be at least 5 characters',
         ]);
         $input = request()->all();
+        Log::info(print_r($input, true));
+        if(!array_key_exists('body', $input)){
+            $input['body'] = $input['message'];
+        }
         $question = new Question($input);
         $question->user()->associate(Auth::user());
         $question->save();

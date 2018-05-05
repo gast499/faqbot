@@ -6,8 +6,8 @@ use BotMan\BotMan\BotMan;
 use Illuminate\Http\Request;
 use App\Conversations\ExampleConversation;
 use BotMan\BotMan\Middleware\ApiAi;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
-
 class BotManController extends Controller
 {
     /**
@@ -29,8 +29,15 @@ class BotManController extends Controller
             $apiReply = $extras['apiReply']; //captures the DialogFlow reply for the user's message
             $apiAction = $extras['apiAction']; //captures the DialogFlow action for the user's message
             $apiIntent = $extras['apiIntent']; //captures the DialogFlow intent the action was matched with
-            $bot->reply($apiReply);
-//            Log::info(print_r($bot->getMessage(), true));
+            if(Auth::check()){ //Checks if the current user is logged in.
+                $body = $bot->getMessage()->getPayload()['message']; //Gets user's question
+                $req = Request::create('/question', 'POST', ['body' => $body]); //Creates an HTTP POST Request and passes the user's question to it.
+                app('App\Http\Controllers\QuestionController')->store($req); //Sends the Request to the Question Controller's store method
+                $bot->reply("Your Question was created successfully.  Check it out here: ".route('home')); //Has the bot send a reply with a link to the request
+            }
+            else {
+                $bot->reply("Oops, looks like you don't have an account yet.  Come back and ask your question again after registering at ".route('register'));//Tellls the user to register before asking a question
+            }
         })->middleware($dialogflow);
         $botman->hears('input.answer', function (BotMan $bot) {
             // The incoming message matched the "input.answer" action on Dialogflow
