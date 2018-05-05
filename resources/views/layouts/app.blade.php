@@ -22,15 +22,9 @@
 
 <body>
     <header>
-        @guest
-            <a class="navbar-brand" href="{{ url('/') }}">
-                {{ config('app.name', 'Laravel') }}
-            </a>
-        @endguest
 
         @guest
-            <li><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
-            <li><a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a></li>
+
         @else
 
             <div class="collapse bg-dark navbar-fixed-top" id="navbarHeader">
