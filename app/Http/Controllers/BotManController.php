@@ -36,7 +36,7 @@ class BotManController extends Controller
                 $bot->reply("Your Question was created successfully.  Check it out here: ".route('home')); //Has the bot send a reply with a link to the request
             }
             else {
-                $bot->reply("Oops, looks like you don't have an account yet.  Come back and ask your question again after registering at ".route('register'));//Tellls the user to register before asking a question
+                $bot->reply("Hmm, it looks like you aren't signed in yet.  Come back and ask your question again after logging in at " .route('login')." or if you don't have an account yet, feel free to register at: ".route('register'));//Tellls the user to register before asking a question
             }
         })->middleware($dialogflow);
         $botman->hears('input.answer', function (BotMan $bot) {
