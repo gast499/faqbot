@@ -1,22 +1,24 @@
+
 <header>
     <div class="collapse bg-dark" id="navbarHeader">
         <div class="container">
             <div class="row">
                 <div class="col-sm-8 col-md-7 py-4">
-                    <h4 class="text-white">Add Question</h4>
+                    <h4 class="text-white">Information</h4>
                     <p class="text-muted">Add some Questions. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off to some social networking sites or contact information.</p>
                 </div>
-                <div class="col-sm-4 offset-md-1 py-4">
-                    <h4 class="text-white">Contact</h4>
+                <div>
+                    <h4 class="text-white">Setting Information</h4>
                     <ul class="list-unstyled">
                         <li>
                             @if (Auth::user()->profile)
-                                <a class="dropdown-item" href="{{ route('profile.show', ['user_id' => Auth::user()->id,'profile_id' => Auth::user()->profile->id]) }}">My Profile</a>
+                                <a class="text-white" href="{{ route('profile.show', ['user_id' => Auth::user()->id,'profile_id' => Auth::user()->profile->id]) }}">My Profile</a>
                             @else
-                                <a class="dropdown-item" href="{{ route('profile.create', ['user_id' => Auth::user()->id]) }}">Create Profile</a>
+                                <a class="text-white" href="{{ route('profile.create', ['user_id' => Auth::user()->id]) }}">Create Profile</a>
                             @endif
                         </li>
                         <li><a href="#" class="text-white">Search</a></li>
+
                     </ul>
                 </div>
             </div>
