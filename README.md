@@ -5,6 +5,19 @@ Add the following to .env:
 DIALOGFLOW_API_KEY=<your_dialogflow_api_key>
 SCOUT_ELASTIC_HOST=<your_elastic_search_node_ip:port>
 
+Slack Installation:
+
+1. Install slack driver php artisan botman:install-driver slack
+2. Download ngrok: https://ngrok.com/ Open CMD Navigate to folder that ngrok.exe is, type "ngrok http 8000" ngrok will give you a new url next to the first "Forwarding" section
+3. Create Slack Bot: https://api.slack.com/apps Create New App Button top right of screen Select a name and workspace for bot 
+4. Select Interactive Components on sidebar under the Request URL enter the forwarding address that ngrok provided add to the end of the address /botman/tinker Ex: "http://3bfc36f2.ngrok.io/botman/tinker" Save Changes
+5. Select Event Subscriptions under Request URL type in the same forwarding address as you did in the previous step but remove the tinker Ex: "http://3bfc36f2.ngrok.io/botman/" Save Changes
+6. In the same window as the last step Subscribe to Workspace Events: meessage.im for messages
+7. Select Bot Users Choose a name and default username. Save Changes
+8. Under OAuth & Permissions record the token under Bot User OAuth Access Token Place this token in .env file as SLACK_TOKEN=<ACCESS_TOKEN>
+9. Install App under Setting Install the app, Authorize
+
+
 <p align="center"><img height="188" width="198" src="https://botman.io/img/botman.png"></p>
 <h1 align="center">BotMan Studio</h1>
 
