@@ -161,6 +161,11 @@ return [
         BotMan\Studio\Providers\StudioServiceProvider::class,
 
         /*
+         * Stack Overflow Service Provider
+         */
+        App\Providers\StackOverflowServiceProvider::class,
+
+        /*
          * Application Service Providers...
          */
         App\Providers\AppServiceProvider::class,
