@@ -45,7 +45,11 @@
     "autoload-dev": {
         "psr-4": {
             "Tests\\": "tests/"
-        }
+        },
+        "classmap": [
+            "tests/TestCase.php",
+            "vendor/stackphp/src/api.php"
+        ]
     },
     "scripts": {
         "post-root-package-install": [
