@@ -101,6 +101,8 @@ Configure the entire stack by following this [Docker](https://gist.github.com/jt
 -  **PostgreSQL**
 -  **Nginx - Alpine**
 -  **Redis**
+- **Docker** ([project specific docker info](https://gist.github.com/jtn7/dfce2eb3fa7be967676e3aedeb223293))
+- **Project Docker Video** ([Our Project Using Docker](https://youtu.be/f7G9jLMnFOE))
 >Intergrations
 - **Stack overflow**  ([Documentation](https://docs.google.com/document/pub?id=11n_dp6t2jpPcgqNuoEOO0fwLvKxYp_HH-zGoycAnUmY))
 ---
