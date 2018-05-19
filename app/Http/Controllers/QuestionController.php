@@ -55,14 +55,13 @@ class QuestionController extends Controller
             'body.min' => 'Body must be at least 5 characters',
         ]);
         $input = request()->all();
-        Log::info(print_r($input, true));
         if(!array_key_exists('body', $input)){
             $input['body'] = $input['message'];
         }
         $question = new Question($input);
         $question->user()->associate(Auth::user());
         $question->save();
-        return redirect()->route('home')->with('message', 'IT WORKS!');
+        return redirect()->route('home')->with('message', 'New Question Saved Successfully!');
 
         // return redirect()->route('questions.show', ['id' => $question->id]);
     }
@@ -108,7 +107,7 @@ class QuestionController extends Controller
         ]);
         $question->body = $request->body;
         $question->save();
-        return redirect()->route('question.show',['question_id' => $question->id])->with('message', 'Saved');
+        return redirect()->route('question.show',['question_id' => $question->id])->with('message', 'Question Updated Successfully!');
     }
 
 
@@ -121,6 +120,6 @@ class QuestionController extends Controller
     public function destroy(Question $question)
     {
         $question->delete();
-        return redirect()->route('home')->with('message', 'Deleted');
+        return redirect()->route('home')->with('message', 'Question Deleted Successfully!');
     }
  }
