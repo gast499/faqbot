@@ -1,5 +1,16 @@
 @extends('layouts.app')
 
+{{-- Page Title --}}
+@section('page-title', 'Register')
+
+{{-- Page Subtitle --}}
+@section('page-subtitle', 'Register to start your session')
+
+{{-- Breadcrumbs --}}
+@section('breadcrumbs')
+    {!! Breadcrumbs::render('register') !!}
+@endsection
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
