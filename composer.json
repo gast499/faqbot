@@ -47,8 +47,7 @@
             "Tests\\": "tests/"
         },
         "classmap": [
-            "tests/TestCase.php",
-            "vendor/stackphp/src/api.php"
+            "tests/TestCase.php"
         ]
     },
     "scripts": {
