@@ -72,8 +72,7 @@
         </div>
     </nav>
 
-    <div class="jumbotron">
-    </div>
+
     <main class="py-sm-0">
         <section class="content-header">
             @yield('breadcrumbs')

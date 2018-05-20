@@ -48,7 +48,11 @@ There are a few different jobs that we will need eventually.   For example, we m
 5. setup database / with sqlite or other https://laravel.com/docs/5.6/database
 6. Run: php artisan migrate
 7. Run: unit tests: phpunit
-8. Run: seeds php artisan migrate:refresh --seed
+8. add this to your .env file SCOUT_ELASTIC_HOST=54.89.213.69:9200
+9. Run: seeds php artisan migrate:refresh --seed
+
+##todo
+We need to make instructions for installing ES / Have it work crrectly with docker
 
 ## Project Resources:
 

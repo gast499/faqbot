@@ -10,11 +10,6 @@
                 <div class="card">
 
                     <div class="card-header">
-{{--                        <b>Question Title : {{$question->title}} <br/></b>--}}
-                        <?php
-                        $title = (strlen($question->body) > 10) ? substr($title,0,10).'...' : $question->body;
-                        ?>
-                        <b>Question Title : {{$title}} <br/></b>
                         <i>Posted on : {{$question->created_at->format('l M 6, Y h:i A')}}</i>
                         @if($question->created_at!=$question->updated_at)
                             <br/>
@@ -79,9 +74,11 @@
                     </div>
                 </div>
             </div>
+            @include("includes.archive")
+
         </div>
+
     </div>
-    @include("includes.archive")
 
 
 @endsection
