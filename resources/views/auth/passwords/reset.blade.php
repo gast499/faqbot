@@ -1,5 +1,16 @@
 @extends('layouts.app')
 
+{{-- Page Title --}}
+@section('page-title', 'Reset Password')
+
+{{-- Page Subtitle --}}
+@section('page-subtitle', '')
+
+{{-- Breadcrumbs --}}
+@section('breadcrumbs')
+    {!! Breadcrumbs::render('password-reset') !!}
+@endsection
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">

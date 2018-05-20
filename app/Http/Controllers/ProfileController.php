@@ -43,19 +43,12 @@ class ProfileController extends Controller
 
     public function store(Request $request)
     {
-        $input = $request->validate([
-            'fname' => 'required',
-            'lname' => 'required',
-            'body' => 'required',
-        ], [
+        $input =Profile::ValidateInputs($request);
 
-            'fname.required' => ' First is required',
-            'lname.required' => ' Last is required',
-            'body.required' => ' Body is required',
-        ]);
         $input = request()->all();
 
         $profile = new Profile($input);
+//        $profile->LoadAvatar($request,$profile);
         $profile->user()->associate(Auth::user());
         $profile->save();
 
@@ -101,19 +94,13 @@ class ProfileController extends Controller
      */
     public function update(Request $request,  $user, $profile)
     {
-        $input = $request->validate([
-            'fname' => 'required',
-            'lname' => 'required',
-        ], [
+        $input =Profile::ValidateInputs($request);
 
-            'fname.required' => ' First is required',
-            'lname.required' => ' Last is required',
-
-        ]);
         $profile = Profile::find($profile);
         $profile->fname = $request->fname;
         $profile->lname = $request->lname;
         $profile->body = $request->body;
+//        $profile->LoadAvatar($request,$profile);
         $profile->save();
 
         return redirect()->route('home')->with('message', 'Profile Created');
@@ -126,8 +113,13 @@ class ProfileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($user,$profile)
     {
-        //
+        //Find the corresponding user
+        $user = User::find($user);
+        //Get the user profile
+        $profile = $user->profile;
+        $profile->delete();
+        return redirect()->route('home')->with('message', 'Profile Deleted Successfully!');
     }
 }

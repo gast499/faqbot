@@ -13,7 +13,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        //View Composer --
+        view()->composer(
+            ['app','home','question','answer','questionForm','answerForm'],
+            'App\Http\ViewComposers\ProfileComposer'
+        );
     }
 
     /**
