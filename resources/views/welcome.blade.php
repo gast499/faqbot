@@ -33,7 +33,6 @@
         </div>
     </div>
 </nav>
-</div>
 <div class="container">
     <div class="container" mb-10 style="font-family:KacstLetter;">
         <br/>
