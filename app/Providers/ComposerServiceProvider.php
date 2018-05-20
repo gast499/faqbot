@@ -3,7 +3,6 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use View;
 class ComposerServiceProvider extends ServiceProvider
 {
     /**
@@ -13,10 +12,11 @@ class ComposerServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
-        view()->composer('layouts.sidebarRecentQ',function($view){
-            $view->with('RecentQ',\App\Question::RecentQuestions());
-        });
+        //View Composer --
+        view()->composer(
+            ['includes/archive'],
+            'App\Http\ViewComposers\QuestionComposer'
+        );
     }
 
     /**

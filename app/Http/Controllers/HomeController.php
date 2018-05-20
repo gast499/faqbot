@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use \App\Http\Repository\QuestionRepository;
+
 
 class HomeController extends Controller
 {
@@ -14,11 +16,15 @@ class HomeController extends Controller
         $this->middleware('auth');
     }
 
-    public function index()
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index(QuestionRepository $questionRepository)
     {
-        $user = Auth::user();
-        $questions = $user->questions()->paginate(5);
-        return view('home')->with('questions',$questions);
+        $questions = $questionRepository->getQuestionsList();
+        return view('home', compact('questions'));
     }
 }
 

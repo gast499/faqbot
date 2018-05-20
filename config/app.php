@@ -151,7 +151,8 @@ return [
          * Package Service Providers...
          */
         Laravel\Tinker\TinkerServiceProvider::class,
-
+        DaveJamesMiller\Breadcrumbs\BreadcrumbsServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
         /*
          * BotMan Service Providers...
          */
@@ -173,7 +174,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-
+        App\Providers\ComposerServiceProvider::class,
     ],
 
     /*
@@ -222,7 +223,8 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-
+        'Breadcrumbs' => DaveJamesMiller\Breadcrumbs\Facades\Breadcrumbs::class,
+        'Image' => Intervention\Image\Facades\Image::class,
     ],
 
 ];

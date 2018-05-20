@@ -1,37 +1,62 @@
 @extends('layouts.app')
+{{-- Breadcrumbs --}}
+@section('breadcrumbs')
+    {{ Breadcrumbs::render('Home')}}
+@endsection
 @section('content')
-<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-9">
+                <div class="card">
 
-    <br>
-    <ul>
-    @forelse($questions as $question)
-        <div class="container">
-            <nav aria-label="breadcrumb">
-                <button type="button"  class="btn btn-outline-dark btn-sm"
-                        data-toggle="tooltip" data-placement="top" title="Updated: {{ $question->created_at->diffForHumans() }}">{{$question->body}}</button>
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item active">
-                            <a href="{{ route('question.show', ['id' => $question->id]) }}"><small>Answers: {{ $question->answers()->count() }}</small></a></li>
+                    <div class="card-header"><b>Questions:</b>
+                        <a class="btn btn-outline-primary float-right" href="{{ route('question.create') }}">
+                            + Add Question
+                        </a>
+                        <br/>
+                        <div class="card-body">
 
-                </ol>
-            </nav>
+                            <div class="card-deck">
+                                @forelse($questions as $question)
+                                    <div class="col-sm-4 d-flex align-items-stretch">
+                                        <div class="card mb-3 ">
+                                            <div class="card-header">
+                                                <small class="text-muted">
+                                                    Updated: {{ $question->created_at->diffForHumans() }}
+                                                    Answers: {{ $question->answers()->count() }}
+                                                </small>
+                                            </div>
+                                            <div class="card-body">
+                                                <p class="card-text">{{$question->body}}</p>
+                                            </div>
+                                            <div class="card-footer">
+                                                <p class="card-text">
+
+                                                    <a class="btn btn-link float-right" href="{{ route('question.show', ['id' => $question->id]) }}">
+                                                        <i>View More>></i>
+                                                    </a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @empty
+                                    There are no questions to view, you can  create a question.
+                                @endforelse
+                            </div>
+
+                        </div>
+                        <div class="card-footer">
+                            <div class="float-right">
+                                {{ $questions->links() }}
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            @include("includes.archive")
         </div>
-    @empty
-        There are not questions to view,you can create a new question
-    @endforelse
-    </ul>
-    @endsection
-    @section('qfoot')
-        <nav class="navbar navbar-expand-md fixed-bottom navbar-dark bg-dark">
+    </div>
 
-            <div class="panel-footer"> @yield('qfoot')</div>
-        </nav>
-        <div class="float-right">
-            {{ $questions->links() }}
-        </div>
-    @endsection
-</body>
-
-
-
-
+@endsection
