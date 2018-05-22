@@ -1,4 +1,4 @@
-#Introduction to the FAQ Project at NJIT
+###Introduction to the FAQ Project at NJIT
 
 ##Project Overview 
 
