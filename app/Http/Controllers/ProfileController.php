@@ -52,7 +52,7 @@ class ProfileController extends Controller
         $profile->user()->associate(Auth::user());
         $profile->save();
 
-        return redirect()->route('profile')->with('message', 'Profile Created');
+        return redirect()->route('profile.show',['user' => Auth::user()->id, 'profile' => $profile ])->with('message', 'Profile Created');
 
     }
 

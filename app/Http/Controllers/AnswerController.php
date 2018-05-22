@@ -107,7 +107,7 @@ class AnswerController extends Controller
         $answer->body = $request->body;
         $answer->save();
 
-        return redirect()->route('answer.show',['question_id' => $question, 'answer_id' => $answer])->with('message', 'Updated');
+        return redirect()->route('answers.show',['question_id' => $question, 'answer_id' => $answer])->with('message', 'Updated');
 
     }
 
