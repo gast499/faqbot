@@ -38,35 +38,35 @@ Student Developers can be promoted to other roles in the future and specialize i
 
 ## Running the FAQ project:
 
--- git clone https://github.com/NJIT-WIS/faq.git
--- cd faqbot and run composer install
--- cp .env.example to .env
--- run: php artisan key: generate
--- setup database / with SQLite or other https://laravel.com/docs/5.6/database
--- Run: php artisan migrate
--- Run: unit tests: phpunit
--- add this to your .env file: SCOUT_ELASTIC_HOST=54.89.213.69:9200
--- Run: seeds php artisan migrate:refresh –seed
+- git clone https://github.com/NJIT-WIS/faq.git
+- cd faqbot and run composer install
+- cp .env.example to .env
+- run: php artisan key: generate
+- setup database / with SQLite or other https://laravel.com/docs/5.6/database
+- Run: php artisan migrate
+- Run: unit tests: phpunit
+- add this to your .env file: SCOUT_ELASTIC_HOST=54.89.213.69:9200
+- Run: seeds php artisan migrate:refresh –seed
 
 ##  Technology Instructions
 Configure the entire stack by following this Docker tutorial.  This project is engineered and maintained by using the Test Driven Development. Each feature implemented should follow with a pull request on the designated branch (GitHub workflow).
---Laravel (Basic To-do, FAQBot Project)
---Vue.JS (Tutorial with Laravel)
---Botman (Explanation Lecture)
---Dialogflow (Documentation)
---Elastic Search (Documentation)
---PostgreSQL
---Nginx - Alpine
---Redis
---Project Docker Video (Our Project Using Docker)
---Stack overflow (Documentation)
+- Laravel (Basic To-do, FAQBot Project)
+- Vue.JS (Tutorial with Laravel)
+- Botman (Explanation Lecture)
+- Dialogflow (Documentation)
+- Elastic Search (Documentation)
+- PostgreSQL
+- Nginx - Alpine
+- Redis
+- Project Docker Video (Our Project Using Docker)
+- Stack overflow (Documentation)
 ## Configuration
 Add the following to .env:
-DIALOGFLOW_API_KEY=<your_dialogflow_api_key> SCOUT_ELASTIC_HOST=<your_elastic_search_node_ip:port>
-Download ngrok: https://ngrok.com/ Open CMD Navigate to folder that ngrok.exe is, type "ngrok http 8000" ngrok will give you a new url next to the first "Forwarding" section
-Create Slack Bot: https://api.slack.com/apps Create New App Button top right of screen Select a name and workspace for bot
-Select Interactive Components on sidebar under the Request URL enter the forwarding address that ngrok provided add to the end of the address /botman/tinker Ex: "http://3bfc36f2.ngrok.io/botman/tinker" Save Changes
-Select Event Subscriptions under Request URL type in the same forwarding address as you did in the previous step but remove the tinker Ex: "http://3bfc36f2.ngrok.io/botman/" Save Changes
+- DIALOGFLOW_API_KEY=<your_dialogflow_api_key> SCOUT_ELASTIC_HOST=<your_elastic_search_node_ip:port>
+- Download ngrok: https://ngrok.com/ Open CMD Navigate to folder that ngrok.exe is, type "ngrok http 8000" ngrok will give you a new url next to the first "Forwarding" section
+- Create Slack Bot: https://api.slack.com/apps Create New App Button top right of screen Select a name and workspace for bot
+- Select Interactive Components on sidebar under the Request URL enter the forwarding address that ngrok provided add to the end of the address /botman/tinker Ex: "http://3bfc36f2.ngrok.io/botman/tinker" Save Changes
+- Select Event Subscriptions under Request URL type in the same forwarding address as you did in the previous step but remove the tinker Ex: "http://3bfc36f2.ngrok.io/botman/" Save Changes
 In the same window as the last step Subscribe to Workspace Events: meessage.im for messages
 Select Bot Users Choose a name and default username. Save Changes
 Under OAuth & Permissions record the token under Bot User OAuth Access Token Place this token in .env file as SLACK_TOKEN=<ACCESS_TOKEN>
@@ -77,16 +77,16 @@ Make instructions for installing ES and have it work correctly with docker
 
 ## Resources
 ## Relevant Laravel Resources:
--- https://laravel.com/docs/5.6/eloquent
--- https://laravel.com/docs/5.6/database
--- https://laravel.com/docs/5.6/seeding
--- https://laravel.com/docs/5.6/testing
+- https://laravel.com/docs/5.6/eloquent
+- https://laravel.com/docs/5.6/database
+- https://laravel.com/docs/5.6/seeding
+- https://laravel.com/docs/5.6/testing
 ## Relevant General Resources:
--- https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow
--- https://www.jetbrains.com/phpstorm/
--- http://agiledata.org/essays/tdd.html
+- https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow
+- https://www.jetbrains.com/phpstorm/
+- http://agiledata.org/essays/tdd.html
 ## Free Alternative:
--- https://code.visualstudio.com/
+- https://code.visualstudio.com/
 
 ## About BotMan Studio
 While BotMan itself is framework agnostic, BotMan is also available as a bundle with the great Laravel PHP framework. This bundled version is called BotMan Studio and makes your chatbot development experience even better. By providing testing tools, an out of the box web driver implementation and additional tools like an enhanced CLI with driver installation, class generation and configuration support, it speeds up the development significantly.
