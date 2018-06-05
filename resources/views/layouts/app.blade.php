@@ -78,9 +78,9 @@
             @yield('breadcrumbs')
         </section>
         <div class="col-12">
-            @include('Flash.error')
-            @include('Flash.messages')
-            @include('Flash.status')
+            @include('flash.error')
+            @include('flash.messages')
+            @include('flash.status')
         </div>
 
         @yield('content')
