@@ -6,6 +6,7 @@ services:
             dockerfile: php.dockerfile
         volumes:
             - code:/code
+        command: sh -c "chmod -R 777 /code/storage; php-fpm"
 
     nginx:
         image: nginx:1.12-alpine
