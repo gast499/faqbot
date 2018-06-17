@@ -16,6 +16,7 @@
         "botman/botman": "~2.0",
         "botman/driver-slack": "^2.1",
         "botman/driver-web": "~1.0",
+        "botman/installer": "^1.0",
         "botman/studio-addons": "~1.2.1",
         "botman/tinker": "~1.0",
         "davejamesmiller/laravel-breadcrumbs": "~5.0.0",
@@ -28,6 +29,7 @@
         "laravel/tinker": "~1.0",
         "laravelcollective/html": "5.6.0",
         "mpociot/slack-client": "^1.0",
+        "predis/predis": "^1.1",
         "react/event-loop": "^0.4.3",
         "rtconner/laravel-tagging": "~2.2"
     },

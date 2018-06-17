@@ -15,10 +15,10 @@ class FeatureArchiveTest extends TestCase
      */
     public function testArchiveSidebar()
     {
-        $archives = Question::query()->selectRaw('strftime(? ,created_at)as year,
-            strftime(?,created_at) as month,count(id) as qcount' ,['%Y','%m'])
+        $archives = Question::query()->selectRaw("to_char(created_at, 'YYYY') as year,
+                to_char(created_at, 'Mon') as month, count(id) as qcount")
             -> groupBy('year','month')
-            ->orderByDesc('created_at')
+            ->orderByRaw('min(created_at) desc')
             ->get();
         $this->assertTrue($archives->count()>0);
     }

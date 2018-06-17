@@ -90,10 +90,10 @@ class Question extends Model
     }
     public static function ArchiveStats()
     {
-        return static::query()->selectRaw('strftime(? ,created_at)as year,
-            strftime(?,created_at) as month,count(id) as qcount' ,['%Y','%m'])
+        return static::query()->selectRaw("to_char(created_at, 'YYYY') as year,
+                to_char(created_at, 'MM') as month, count(id) as qcount")
             -> groupBy('year','month')
-            ->orderByDesc('created_at')
+            ->orderByRaw('min(created_at) desc')
             ->get();
     }
 }
