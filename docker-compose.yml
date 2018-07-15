@@ -27,11 +27,11 @@ services:
         image: redis:3-alpine
 
     elastic:
-        image: docker.elastic.co/elasticsearch/elasticsearch:6.2.4
+        build:
+            context: ./
+            dockerfile: elastic.dockerfile
         environment:
             discovery.type: single-node
-        volumes:
-            - ./jvm.options:/usr/share/elasticsearch/config/jvm.options
 
 volumes:
     code:
