@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Answer;
 use Illuminate\Http\Request;
 use App\Question;
 use Illuminate\Support\Facades\Auth;
@@ -23,7 +24,7 @@ class QuestionController extends Controller
 
     public function index()
     {
-
+        return response()->json(Question::all()->toArray());
     }
 
 
@@ -121,5 +122,10 @@ class QuestionController extends Controller
     {
         $question->delete();
         return redirect()->route('home')->with('message', 'Question Deleted Successfully!');
+    }
+
+    public function listUnanswered(){
+        $allAnsweredQuestionsIDs = Answer::pluck('question_id')->all();
+        return response()->json(Question::whereNotIn('id', $allAnsweredQuestionsIDs)->select(...)->get()->toArray());
     }
  }
